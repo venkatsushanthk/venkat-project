@@ -19,12 +19,13 @@ Side = UnitWidth * Width
 
 
 # Functions
-def ColorGrid(row, column):
+def ColorGrid(row, column, color):
     x = (column - 1) * Width
     y = (row - 1) * Width
     t.penup()
     t.goto(x, y)
     t.pendown()
+    t.pencolor(color)
     for a in range(0, Width // 2):
         t.left(90)
         t.fd(1)
@@ -67,19 +68,16 @@ for k in range(0, UnitWidth - 1):
     t.fd(Side)
     t.right(90)
 
-OddRows = (UnitWidth + 1) // 2
-EvenRows = UnitWidth // 2
-for r1 in range(0, OddRows):
-    for c1 in range(0, OddRows):
-        row1 = r1 * 2 + 1
-        col1 = c1 * 2 + 1
-        ColorGrid(row1, col1)
+# The code for the fill in
+for r in range(1, UnitWidth + 1):
+    for c in range(1, UnitWidth + 1):
+        if (r + c) % 2 == 0:
+            ColorGrid(r, c, "black")
 
-for r2 in range(0, EvenRows):
-    for c2 in range(0, EvenRows):
-        row2 = r2 * 2 + 2
-        col2 = c2 * 2 + 2
-        ColorGrid(row2, col2)
+for r in range(1, UnitWidth + 1):
+    for c in range(1, UnitWidth + 1):
+        if (r + c) % 2 == 1:
+            ColorGrid(r, c, "white")
 
 # Returns back to home
 t.penup()
