@@ -12,9 +12,9 @@ t.pencolor("white")
 t.speed(0)
 
 # Input Variables (for testing)
-GridSize = 5
-StartRowToken = 3
-StartColToken = 3
+GridSize = 10
+StartRowToken = 5
+StartColToken = 5
 CellWidth = 30
 TokenWidth = 10
 Margin = (CellWidth - TokenWidth) / 2
